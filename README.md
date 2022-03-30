@@ -68,18 +68,28 @@ Go to `http://localhost:9097`
 
 ## Test the source code
 `cd tekton-book-app`
+
 `npm install`
+
 `npm start`
+
 `curl localhost:3000`
+
 `curl localhost:3000/add/12/10`
+
 `curl localhost:3000/substract/10/2`
+
 `Ctrl+C`
+
 `npm run lint`
+
 `npm run test`
 
 ## Creating the container
 `docker build -t <YOUR_USERNAME>/tekton-lab-app .`
+
 `docker login docker.io`
+
 `docker push <YOUR_USERNAME>/tekton-lab-app`
 
 ## Deploying the application
@@ -87,15 +97,21 @@ Go to `http://localhost:9097`
 
 ### Verify the deployment
 `kubectl get deploy`
+
 `curl $(minikube ip)`
 
 ## Updating the application
 Change the response to the "/" route in server.js to return a different response.
 `git commit -am "Change a server response to one"`
+
 `git push origin main`
-`npm run test`  
+
+`npm run test`
+
 `npm run lint`
+
 `docker build –t <YOUR_USERNAME>/tekton-lab-app .`
+
 `docker push <YOUR_USERNAME>/tekton-lab-app`
 
 ## Rollout the deployment
@@ -118,6 +134,7 @@ Change the response to the "/" route in server.js to return a different response
 
 ## Creating build-push task
 `cd deployment-pipeline`
+
 `kubectl apply -f task.yaml
 
 ## Creating the pipeline
@@ -126,8 +143,11 @@ Change the response to the "/" route in server.js to return a different response
 ## Creating the event-binding, commit-tt and listener
 ### Creating a secret key, which will be shared between your trigger and GitHub
 `export TEKTON_SECRET=$(head -c 24 /dev/random | base64)`
+
 `kubectl create secret generic git-secret --from-literal=secretToken=$TEKTON_SECRET`
+
 `echo $TEKTON_SECRET`
+
 Edit <YOUR_USERNAME>  and <YOUR_PASSWORD> in the `trigger.yaml`
 `kubectl apply -f trigger.yaml`
 
@@ -137,6 +157,7 @@ Edit <YOUR_USERNAME>  and <YOUR_PASSWORD> in the `trigger.yaml`
 
 ### Creating a public route
 `kubectl port-forward svc/el-listener 8080`
+
 `ngrok http 8080`
 
 ## Adding a new webhook to your repository (tekton-lab-app) in the GitHub
@@ -148,12 +169,18 @@ Secret: This is the secret you've stored in the $TEKTON_SECRET environment varia
 ### Make a change to source code in tekton-lab-app
 Change the response to the "/" route in server.js to return a different response.
 `npm run test`
+
 `npm run lint`
+
 `git commit -am "Change a server response to two"`
+
 `git push origin main`
+
 `tkn pipelineruns ls`
+
 `curl $(minikube ip)`
 
 ## Clean up
 `minikube stop`
+
 `minikube delete`
