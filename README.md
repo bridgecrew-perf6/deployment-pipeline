@@ -11,7 +11,9 @@
 
 ### Extensions
 Kubernetes by Microsoft
+
 YAML by Red Hat
+
 Tekton Pipelines by Red Hat
 
 ## Installing Docker
@@ -165,7 +167,9 @@ Edit <YOUR_USERNAME>  and <YOUR_PASSWORD> in the `trigger.yaml`
 ## Adding a new webhook to your repository (tekton-lab-app) in the GitHub
 
 Payload URL: This is your public ngrok URL
+
 Content Type: This should be changed to application/json
+
 Secret: This is the secret you've stored in the $TEKTON_SECRET environment variables
 
 ## Verifying CI/CD pipeline
