@@ -44,6 +44,7 @@ Tekton Pipelines by Red Hat
 
 ### Installing the necessary CRDs for Tekton Triggers on the Kubernetes cluster
 `kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml`
+
 `kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml`
 
 ### Verify
@@ -102,6 +103,7 @@ Go to `http://localhost:9097`
 
 ## Updating the application
 Change the response to the "/" route in server.js to return a different response.
+
 `git commit -am "Change a server response to one"`
 
 `git push origin main`
@@ -161,6 +163,7 @@ Edit <YOUR_USERNAME>  and <YOUR_PASSWORD> in the `trigger.yaml`
 `ngrok http 8080`
 
 ## Adding a new webhook to your repository (tekton-lab-app) in the GitHub
+
 Payload URL: This is your public ngrok URL
 Content Type: This should be changed to application/json
 Secret: This is the secret you've stored in the $TEKTON_SECRET environment variables
