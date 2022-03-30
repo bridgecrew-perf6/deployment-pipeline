@@ -176,6 +176,7 @@ Secret: This is the secret you've stored in the $TEKTON_SECRET environment varia
 ## Verifying CI/CD pipeline
 ### Make a change to source code in tekton-lab-app
 Change the response to the "/" route in server.js to return a different response.
+
 `npm run test`
 
 `npm run lint`
