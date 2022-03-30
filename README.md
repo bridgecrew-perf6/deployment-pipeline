@@ -153,6 +153,7 @@ Change the response to the "/" route in server.js to return a different response
 `echo $TEKTON_SECRET`
 
 Edit <YOUR_USERNAME>  and <YOUR_PASSWORD> in the `trigger.yaml`
+
 `kubectl apply -f trigger.yaml`
 
 ## Creating a public route to your local Kubernetes cluster
